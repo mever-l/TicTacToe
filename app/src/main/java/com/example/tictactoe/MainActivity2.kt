@@ -3,14 +3,15 @@ package com.example.tictactoe
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity2 : AppCompatActivity() {
-    var currentPlayer = "X"
-    val board = arrayOf(
+    private var currentPlayer = "X"
+    private val board = arrayOf(
         arrayOf("", "", ""),
         arrayOf("", "", ""),
         arrayOf("", "", "")
@@ -26,7 +27,7 @@ class MainActivity2 : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
+        findViewById<TextView>(R.id.turn).text = "X turn";
         // Init all buttons
         findViewById<ImageView?>(R.id.box_top_start).apply {
             setOnClickListener {
@@ -42,8 +43,10 @@ class MainActivity2 : AppCompatActivity() {
     fun moveTurn() {
         if(this.currentPlayer.equals("X")) {
             this.currentPlayer = "O"
+            findViewById<TextView>(R.id.turn).text = "O turn";
         } else {
             this.currentPlayer = "X"
+            findViewById<TextView>(R.id.turn).text = "X turn";
         }
     }
 
