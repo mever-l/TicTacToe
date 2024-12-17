@@ -1,65 +1,135 @@
-<?xml version="1.0" encoding="utf-8"?><androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<TableLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:stretchColumns="1">
 
-    <TableRow>
-        <TextView
-            android:gravity="center"
-            android:text="o" />
-
-        <TextView
-            android:layout_height="99dp"
-            android:gravity="center"
-            android:text="a" />
-
-        <TextView
-            android:gravity="center"
-            android:text="a" />
-    </TableRow>
-
-    <TableRow android:layout_height="153dp">
-
-        <TextView
-            android:layout_width="126dp"
-            android:gravity="center"
-            android:text="k" />
-
-        <TextView
-            android:layout_width="145dp"
-            android:layout_height="132dp"
-            android:gravity="center"
-            android:text="t" />
-
-        <TextView
-            android:layout_width="134dp"
-            android:gravity="center"
-            android:text="t" />
-    </TableRow>
-
-    <TableRow
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintDimensionRatio="1:1">
 
-        <TextView
-            android:layout_width="107dp"
-            android:gravity="center"
-            android:text="k" />
+        <ImageView
+            android:id="@+id/box_center_center"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/cardview_dark_background"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintHeight_percent="0.33"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center" />
 
-        <TextView
-            android:layout_height="151dp"
-            android:gravity="center"
-            android:text="t" />
+        <ImageView
+            android:id="@+id/box_top_center"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/cardview_dark_background"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintHeight_percent="0.33"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center" />
 
-        <TextView
-            android:gravity="center"
-            android:text="t" />
-    </TableRow>
-</TableLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/box_bottom_center"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/cardview_dark_background"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintHeight_percent="0.33"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center" />
+
+        <!-- Left Row -->
+        <ImageView
+            android:id="@+id/box_left"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/cardview_dark_background"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintHeight_percent="0.33"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:gravity="center" />
+
+        <ImageView
+            android:id="@+id/box_top_start"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/cardview_dark_background"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintHeight_percent="0.33"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:gravity="center" />
+
+        <ImageView
+            android:id="@+id/box_bottom_start"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/cardview_dark_background"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintHeight_percent="0.33"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:gravity="center" />
+
+        <!--  Right Column      -->
+        <ImageView
+            android:id="@+id/box_center_end"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/cardview_dark_background"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintHeight_percent="0.33"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center" />
+
+        <ImageView
+            android:id="@+id/box_top_end"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/cardview_dark_background"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintHeight_percent="0.33"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center" />
+
+        <ImageView
+            android:id="@+id/box_bottom_end"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/cardview_dark_background"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintHeight_percent="0.33"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:text="X Turn"
+        android:id="@+id/turn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constrainedWidth_percent="0.33"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
