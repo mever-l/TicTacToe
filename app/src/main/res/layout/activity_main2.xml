@@ -7,47 +7,48 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintDimensionRatio="1:1">
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/box_center_center"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/cardview_dark_background"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintHeight_percent="0.33"
-            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
-            android:gravity="center" />
+            app:layout_constraintHeight_percent="0.33"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/box_top_center"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/cardview_dark_background"
+            android:gravity="center"
             app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintHeight_percent="0.33"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:gravity="center" />
+            app:layout_constraintHeight_percent="0.33"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/box_bottom_center"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/cardview_dark_background"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintHeight_percent="0.33"
+            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
-            android:gravity="center" />
+            app:layout_constraintHeight_percent="0.33"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <!-- Left Row -->
         <ImageView
@@ -55,34 +56,34 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/cardview_dark_background"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintHeight_percent="0.33"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:gravity="center" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/box_top_start"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/cardview_dark_background"
+            android:gravity="center"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintHeight_percent="0.33"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:gravity="center" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/box_bottom_start"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/cardview_dark_background"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintHeight_percent="0.33"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:gravity="center" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <!--  Right Column      -->
         <ImageView
@@ -90,45 +91,47 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/cardview_dark_background"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintHeight_percent="0.33"
-            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
-            android:gravity="center" />
+            app:layout_constraintHeight_percent="0.33"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/box_top_end"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/cardview_dark_background"
+            android:gravity="center"
             app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintHeight_percent="0.33"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:gravity="center" />
+            app:layout_constraintHeight_percent="0.33"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/box_bottom_end"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/cardview_dark_background"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintHeight_percent="0.33"
+            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
-            android:gravity="center" />
+            app:layout_constraintHeight_percent="0.33" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/turn"
+        android:gravity="center"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintHeight_percent="0.1"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
     <!--        app:layout_constrainedWidth_percent="0.33"-->
