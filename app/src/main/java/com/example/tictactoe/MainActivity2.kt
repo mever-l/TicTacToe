@@ -3,6 +3,7 @@ package com.example.tictactoe
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -10,11 +11,16 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity2 : AppCompatActivity() {
     var currentPlayer = "X"
+    var currentPlayerDrawable = R.drawable.x_icon
     val board = arrayOf(
         arrayOf("", "", ""),
         arrayOf("", "", ""),
         arrayOf("", "", "")
     )
+    val turnText: TextView by lazy {
+        findViewById(R.id.turn)  // Replace with your actual view ID
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // Generic start of activity
@@ -26,15 +32,77 @@ class MainActivity2 : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
         // Init all buttons
         findViewById<ImageView?>(R.id.box_top_start).apply {
             setOnClickListener {
                 if(openBox(0, 0)) {
-                    setImageResource(R.drawable.ic_launcher_foreground);
+                    setImageResource(currentPlayerDrawable);
                     turn(0,0);
                 }
-                //add function call for logic
+            }
+        }
+        findViewById<ImageView?>(R.id.box_center_start).apply {
+            setOnClickListener {
+                if(openBox(1, 0)) {
+                    setImageResource(currentPlayerDrawable);
+                    turn(1,0);
+                }
+            }
+        }
+        findViewById<ImageView?>(R.id.box_bottom_start).apply {
+            setOnClickListener {
+                if(openBox(2, 0)) {
+                    setImageResource(currentPlayerDrawable);
+                    turn(2,0);
+                }
+            }
+        }
+        findViewById<ImageView?>(R.id.box_top_center).apply {
+            setOnClickListener {
+                if(openBox(0, 1)) {
+                    setImageResource(currentPlayerDrawable);
+                    turn(0,1);
+                }
+            }
+        }
+        findViewById<ImageView?>(R.id.box_center_center).apply {
+            setOnClickListener {
+                if(openBox(1, 1)) {
+                    setImageResource(currentPlayerDrawable);
+                    turn(1,1);
+                }
+            }
+        }
+        findViewById<ImageView?>(R.id.box_bottom_center).apply {
+            setOnClickListener {
+                if(openBox(2, 1)) {
+                    setImageResource(currentPlayerDrawable);
+                    turn(2,1);
+                }
+            }
+        }
+        findViewById<ImageView?>(R.id.box_top_end).apply {
+            setOnClickListener {
+                if(openBox(0, 2)) {
+                    setImageResource(currentPlayerDrawable);
+                    turn(0,2);
+                }
+            }
+        }
+        findViewById<ImageView?>(R.id.box_center_end).apply {
+            setOnClickListener {
+                if(openBox(1, 2)) {
+                    setImageResource(currentPlayerDrawable);
+                    turn(1,2);
+                }
+            }
+        }
+        findViewById<ImageView?>(R.id.box_bottom_end).apply {
+            setOnClickListener {
+                if(openBox(2, 2)) {
+                    setImageResource(currentPlayerDrawable);
+                    turn(2,2);
+                }
             }
         }
     }
@@ -42,8 +110,13 @@ class MainActivity2 : AppCompatActivity() {
     fun moveTurn() {
         if(this.currentPlayer.equals("X")) {
             this.currentPlayer = "O"
+            this.currentPlayerDrawable = R.drawable.o_icon
+            this.turnText.text = "O turn"
         } else {
             this.currentPlayer = "X"
+            this.currentPlayerDrawable = R.drawable.x_icon
+            this.turnText.text = "X turn"
+
         }
     }
 
