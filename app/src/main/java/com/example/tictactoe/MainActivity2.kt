@@ -129,15 +129,16 @@ class MainActivity2 : AppCompatActivity() {
         this.board[row][col] = currentPlayer
         val winner = checkWinner(row, col)
         if(winner != null) {
-            this.turnText.text = "won"
-            this.restartButton.text = "Restart game"
+            this.turnText.text = "$currentPlayer won!"
+            this.restartButton.text = "Click to start a new game"
             this.restartButton.apply {
-            setOnClickListener{
-               restartGame()
+                setOnClickListener {
+                    restartGame()
+                }
             }
-            }
+        } else {
+            moveTurn();
         }
-        moveTurn();
     }
 
     fun openBox(row: Int, col: Int): Boolean {
