@@ -2,6 +2,7 @@ package com.example.tictactoe
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -10,12 +11,20 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity2 : AppCompatActivity() {
-    private var currentPlayer = "X"
-    private val board = arrayOf(
+    var currentPlayer = "X"
+    var currentPlayerDrawable = R.drawable.x_icon
+    var board = arrayOf(
         arrayOf("", "", ""),
         arrayOf("", "", ""),
         arrayOf("", "", "")
     )
+    val turnText: TextView by lazy {
+        findViewById(R.id.turn)  // Replace with your actual view ID
+    }
+    val restartButton: Button by lazy {
+        findViewById(R.id.restart)
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // Generic start of activity
@@ -27,15 +36,78 @@ class MainActivity2 : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        findViewById<TextView>(R.id.turn).text = "X turn";
+
         // Init all buttons
         findViewById<ImageView?>(R.id.box_top_start).apply {
             setOnClickListener {
                 if(openBox(0, 0)) {
-                    setImageResource(R.drawable.ic_launcher_foreground);
+                    setImageResource(currentPlayerDrawable);
                     turn(0,0);
                 }
-                //add function call for logic
+            }
+        }
+        findViewById<ImageView?>(R.id.box_center_start).apply {
+            setOnClickListener {
+                if(openBox(1, 0)) {
+                    setImageResource(currentPlayerDrawable);
+                    turn(1,0);
+                }
+            }
+        }
+        findViewById<ImageView?>(R.id.box_bottom_start).apply {
+            setOnClickListener {
+                if(openBox(2, 0)) {
+                    setImageResource(currentPlayerDrawable);
+                    turn(2,0);
+                }
+            }
+        }
+        findViewById<ImageView?>(R.id.box_top_center).apply {
+            setOnClickListener {
+                if(openBox(0, 1)) {
+                    setImageResource(currentPlayerDrawable);
+                    turn(0,1);
+                }
+            }
+        }
+        findViewById<ImageView?>(R.id.box_center_center).apply {
+            setOnClickListener {
+                if(openBox(1, 1)) {
+                    setImageResource(currentPlayerDrawable);
+                    turn(1,1);
+                }
+            }
+        }
+        findViewById<ImageView?>(R.id.box_bottom_center).apply {
+            setOnClickListener {
+                if(openBox(2, 1)) {
+                    setImageResource(currentPlayerDrawable);
+                    turn(2,1);
+                }
+            }
+        }
+        findViewById<ImageView?>(R.id.box_top_end).apply {
+            setOnClickListener {
+                if(openBox(0, 2)) {
+                    setImageResource(currentPlayerDrawable);
+                    turn(0,2);
+                }
+            }
+        }
+        findViewById<ImageView?>(R.id.box_center_end).apply {
+            setOnClickListener {
+                if(openBox(1, 2)) {
+                    setImageResource(currentPlayerDrawable);
+                    turn(1,2);
+                }
+            }
+        }
+        findViewById<ImageView?>(R.id.box_bottom_end).apply {
+            setOnClickListener {
+                if(openBox(2, 2)) {
+                    setImageResource(currentPlayerDrawable);
+                    turn(2,2);
+                }
             }
         }
     }
@@ -43,10 +115,13 @@ class MainActivity2 : AppCompatActivity() {
     fun moveTurn() {
         if(this.currentPlayer.equals("X")) {
             this.currentPlayer = "O"
-            findViewById<TextView>(R.id.turn).text = "O turn";
+            this.currentPlayerDrawable = R.drawable.o_icon
+            this.turnText.text = "O turn"
         } else {
             this.currentPlayer = "X"
-            findViewById<TextView>(R.id.turn).text = "X turn";
+            this.currentPlayerDrawable = R.drawable.x_icon
+            this.turnText.text = "X turn"
+
         }
     }
 
@@ -54,10 +129,13 @@ class MainActivity2 : AppCompatActivity() {
         this.board[row][col] = currentPlayer
         val winner = checkWinner(row, col)
         if(winner != null) {
-            val intent = Intent(this, EndGameActivity::class.java).apply {
-                putExtra("winner", winner)
-            };
-            startActivity(intent);
+            this.turnText.text = "won"
+            this.restartButton.text = "Restart game"
+            this.restartButton.apply {
+            setOnClickListener{
+               restartGame()
+            }
+            }
         }
         moveTurn();
     }
@@ -84,5 +162,45 @@ class MainActivity2 : AppCompatActivity() {
         }
 
         return null
+    }
+
+    fun restartGame() {
+        this.board = arrayOf(
+            arrayOf("", "", ""),
+            arrayOf("", "", ""),
+            arrayOf("", "", "")
+        )
+        findViewById<ImageView?>(R.id.box_top_start).apply {
+            setImageResource(0)
+        }
+        findViewById<ImageView?>(R.id.box_center_start).apply {
+            setImageResource(0)
+        }
+        findViewById<ImageView?>(R.id.box_bottom_start).apply {
+            setImageResource(0)
+        }
+        findViewById<ImageView?>(R.id.box_center_end).apply {
+            setImageResource(0)
+        }
+        findViewById<ImageView?>(R.id.box_top_center).apply {
+            setImageResource(0)
+        }
+        findViewById<ImageView?>(R.id.box_center_center).apply {
+            setImageResource(0)
+        }
+        findViewById<ImageView?>(R.id.box_bottom_center).apply {
+            setImageResource(0)
+        }
+        findViewById<ImageView?>(R.id.box_top_end).apply {
+            setImageResource(0)
+        }
+        findViewById<ImageView?>(R.id.box_bottom_end).apply {
+            setImageResource(0)
+        }
+        this.currentPlayer = "X";
+        this.currentPlayerDrawable = R.drawable.x_icon
+        this.turnText.text = "X turn"
+        restartButton.text= ""
+
     }
 }

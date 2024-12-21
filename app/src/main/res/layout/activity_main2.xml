@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#EFA3A3">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:padding="10dp"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -17,8 +18,9 @@
             android:id="@+id/box_center_center"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/cardview_dark_background"
+            android:background="#B3ABAB"
             android:gravity="center"
+            android:padding="1dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +32,7 @@
             android:id="@+id/box_top_center"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/cardview_dark_background"
+            android:background="#B3ABAB"
             android:gravity="center"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +44,7 @@
             android:id="@+id/box_bottom_center"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/cardview_dark_background"
+            android:background="#B3ABAB"
             android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
@@ -52,10 +54,10 @@
 
         <!-- Left Row -->
         <ImageView
-            android:id="@+id/box_left"
+            android:id="@+id/box_center_start"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/cardview_dark_background"
+            android:background="#B3ABAB"
             android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
@@ -67,7 +69,7 @@
             android:id="@+id/box_top_start"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/cardview_dark_background"
+            android:background="#B3ABAB"
             android:gravity="center"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintHeight_percent="0.33"
@@ -78,19 +80,18 @@
             android:id="@+id/box_bottom_start"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/cardview_dark_background"
+            android:background="#B3ABAB"
             android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintHeight_percent="0.33"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <!--  Right Column      -->
         <ImageView
             android:id="@+id/box_center_end"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/cardview_dark_background"
+            android:background="#B3ABAB"
             android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
@@ -102,7 +103,7 @@
             android:id="@+id/box_top_end"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/cardview_dark_background"
+            android:background="#B3ABAB"
             android:gravity="center"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
@@ -113,7 +114,7 @@
             android:id="@+id/box_bottom_end"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/cardview_dark_background"
+            android:background="#B3ABAB"
             android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
@@ -123,15 +124,37 @@
 
     <TextView
         android:id="@+id/turn"
+        android:layout_width="211dp"
+        android:layout_height="41dp"
+        android:background="#473e50"
         android:gravity="center"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="16dp"
+        android:rotationX="0"
+        android:text="X Turn"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.1"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.742" />
+
+    <Button
+        android:id="@+id/restart"
+        android:layout_width="211dp"
+        android:layout_height="41dp"
+        android:background="#EFA3A3"
+        android:backgroundTint="#E69D9D"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColorHint="#E69D9D"
+        android:textColorLink="#E69D9D"
+        android:textSize="24sp"
+        app:iconTint="#3F3F3F"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/turn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-    <!--        app:layout_constrainedWidth_percent="0.33"-->
