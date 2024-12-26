@@ -2,6 +2,7 @@ package com.example.tictactoe
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -12,13 +13,16 @@ import androidx.core.view.WindowInsetsCompat
 class MainActivity2 : AppCompatActivity() {
     var currentPlayer = "X"
     var currentPlayerDrawable = R.drawable.x_icon
-    val board = arrayOf(
+    var board = arrayOf(
         arrayOf("", "", ""),
         arrayOf("", "", ""),
         arrayOf("", "", "")
     )
     val turnText: TextView by lazy {
         findViewById(R.id.turn)  // Replace with your actual view ID
+    }
+    val restartButton: Button by lazy {
+        findViewById(R.id.restart)
     }
 
 
@@ -32,6 +36,7 @@ class MainActivity2 : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
         // Init all buttons
         findViewById<ImageView?>(R.id.box_top_start).apply {
             setOnClickListener {
@@ -124,12 +129,16 @@ class MainActivity2 : AppCompatActivity() {
         this.board[row][col] = currentPlayer
         val winner = checkWinner(row, col)
         if(winner != null) {
-            val intent = Intent(this, EndGameActivity::class.java).apply {
-                putExtra("winner", winner)
-            };
-            startActivity(intent);
+            this.turnText.text = "$currentPlayer won!"
+            this.restartButton.text = "Click to start a new game"
+            this.restartButton.apply {
+                setOnClickListener {
+                    restartGame()
+                }
+            }
+        } else {
+            moveTurn();
         }
-        moveTurn();
     }
 
     fun openBox(row: Int, col: Int): Boolean {
@@ -154,5 +163,45 @@ class MainActivity2 : AppCompatActivity() {
         }
 
         return null
+    }
+
+    fun restartGame() {
+        this.board = arrayOf(
+            arrayOf("", "", ""),
+            arrayOf("", "", ""),
+            arrayOf("", "", "")
+        )
+        findViewById<ImageView?>(R.id.box_top_start).apply {
+            setImageResource(0)
+        }
+        findViewById<ImageView?>(R.id.box_center_start).apply {
+            setImageResource(0)
+        }
+        findViewById<ImageView?>(R.id.box_bottom_start).apply {
+            setImageResource(0)
+        }
+        findViewById<ImageView?>(R.id.box_center_end).apply {
+            setImageResource(0)
+        }
+        findViewById<ImageView?>(R.id.box_top_center).apply {
+            setImageResource(0)
+        }
+        findViewById<ImageView?>(R.id.box_center_center).apply {
+            setImageResource(0)
+        }
+        findViewById<ImageView?>(R.id.box_bottom_center).apply {
+            setImageResource(0)
+        }
+        findViewById<ImageView?>(R.id.box_top_end).apply {
+            setImageResource(0)
+        }
+        findViewById<ImageView?>(R.id.box_bottom_end).apply {
+            setImageResource(0)
+        }
+        this.currentPlayer = "X";
+        this.currentPlayerDrawable = R.drawable.x_icon
+        this.turnText.text = "X turn"
+        restartButton.text= ""
+
     }
 }
